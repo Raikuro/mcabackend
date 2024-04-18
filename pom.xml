@@ -9,6 +9,8 @@
 	<name>Test for backend in mca</name>
 	<properties>
 		<swagger.version>2.2.21</swagger.version>
+		<maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+		<openapi-generator-maven-plugin.version>7.4.0</openapi-generator-maven-plugin.version>
 	</properties>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -109,6 +111,7 @@
 			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<version>${openapi-generator-maven-plugin.version}</version>
 				<executions>
 					<execution>
 						<id>generate-api</id>

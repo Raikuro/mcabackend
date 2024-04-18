@@ -29,7 +29,7 @@ public class SagaService {
     public Set<Game> getSaga(String gameId) {
         Set<Integer> videogamesIdsInSaga = gameSagaApi
                 .getGameSagaRelatedSagas(gameId)
-                .onErrorMap(x -> new GameNotFoundException())
+                .onErrorMap(x -> new GameNotFoundException(gameId))
                 .block()
                 .stream()
                 .map(Integer::valueOf)

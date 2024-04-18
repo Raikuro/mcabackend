@@ -5,6 +5,6 @@ import lombok.ToString;
 
 @ToString
 @AllArgsConstructor
-public class GameNotFoundException extends RuntimeException{
-    private String gameId;
+public class StockNotFoundException extends RuntimeException{
+    private int stockId;
 }

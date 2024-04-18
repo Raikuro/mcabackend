@@ -28,7 +28,8 @@ public class KafkaConfig implements CommandLineRunner {
 	@Value("classpath:events.csv")
 	Resource resourceFile;
 
-	Gson gson = new Gson();
+	@Autowired
+	private Gson gson;
 	@Override
 	public void run(String... args) throws Exception {
 		try {
