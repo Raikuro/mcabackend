@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.support.Acknowledgment;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -19,6 +20,7 @@ import java.time.Instant;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
+@DirtiesContext
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 class KafkaConsumerServiceUnitTest {

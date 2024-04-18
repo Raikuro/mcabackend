@@ -14,6 +14,9 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static java.sql.Timestamp.from;
+import static java.time.Instant.parse;
+
 @Service
 public class SagaService {
 
@@ -35,10 +38,7 @@ public class SagaService {
                 .map(Integer::valueOf)
                 .collect(Collectors.toCollection(LinkedHashSet::new));
 
-        List<Game> gameInfoByIds = gameRepository.findGameInfoByIdsAndDate(videogamesIdsInSaga,
-                Timestamp.from(Instant.parse(date)));
-
-        Map<Integer, Game> gameMap = gameInfoByIds
+        Map<Integer, Game> gameMap = gameRepository.findGameInfoByIdsAndDate(videogamesIdsInSaga, from(parse(date)))
                 .stream()
                 .collect(Collectors.toMap((Game game) -> Integer.valueOf(game.getId()), Function.identity()));
 

@@ -24,7 +24,7 @@ public class KafkaConsumerService {
     @Autowired
     private Gson gson;
 
-    @KafkaListener(topics = "MCA", groupId = "group_id")
+    @KafkaListener(topics = "${topic}", groupId = "group_id")
     public void consumeMessage(String message, Acknowledgment acknowledgment) {
         log.info(message);
         try {
