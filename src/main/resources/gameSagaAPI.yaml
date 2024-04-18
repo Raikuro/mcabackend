@@ -13,6 +13,7 @@ paths:
         in: path
         required: true
     get:
+      # TODO: Add tags to make code far readable
       operationId: get-game-saga-related-sagas
       summary: Gets the related game sagas
       description: Returns the related game sagas to a given one ordered by relevance
