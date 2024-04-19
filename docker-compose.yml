@@ -67,5 +67,20 @@ services:
       - "traefik.http.routers.kafdrop.rule=Host(`kafdrop.localhost`)"
       - "traefik.http.routers.kafdrop.entrypoints=web"
 
-      
-  
+  app:
+    container_name: app
+    build:
+      dockerfile: ./integration/Dockerfile
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    environment:
+      - CONSUMER-BOOTSTRAP-SERVERS=kafka-server:9092
+      - PRODUCER-BOOTSTRAP-SERVERS=kafka-server:9092
+    networks:
+      - default
+    depends_on:
+      - zookeeper-server
+      - simulado
+      - kafka-server
+      - kafdrop-server
